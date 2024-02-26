@@ -54,6 +54,6 @@ jobs:
         platforms: linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x
         push: true
         tags: |
-          ${{ github.actor }}/docker-webdav:latest
-          ${{ github.actor }}/docker-webdav:${{ github.sha }}
-          ${{ github.actor }}/docker-webdav:${{ steps.set-tag.outputs.tag }}
+          ghcr.io/${{ github.actor }}/docker-webdav:latest
+          ghcr.io/${{ github.actor }}/docker-webdav:${{ github.sha }}
+          ghcr.io/${{ github.actor }}/docker-webdav:${{ steps.set-tag.outputs.tag }}
