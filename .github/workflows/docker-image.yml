@@ -3,11 +3,12 @@ name: Docker Image CI
 on:
   push:
     branches:
-      - "master"
-      - "add-docker"
+      - "main"
   pull_request:
-    branches: [ "master" ]
-
+    branches: [ "main" ]
+  schedule:
+    - cron: "${{ github.event.workflow_run_id % 60 }} ${{ github.event.workflow_run_id % 24 }} * * *"
+    
 jobs:
 
   build:
@@ -50,7 +51,6 @@ jobs:
       with:
         context: ./2.4/
         file: ./2.4/Dockerfile
-        # platforms: linux/amd64
         platforms: linux/386,linux/amd64,linux/arm/v6,linux/arm/v7,linux/arm64,linux/ppc64le,linux/s390x
         push: true
         tags: |
