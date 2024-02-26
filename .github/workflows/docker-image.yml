@@ -7,7 +7,7 @@ on:
   pull_request:
     branches: [ "main" ]
   schedule:
-    - cron: "${{ github.event.workflow_run_id % 60 }} ${{ github.event.workflow_run_id % 24 }} * * *"
+    - cron: "0 0 * * 0"
     
 jobs:
 
